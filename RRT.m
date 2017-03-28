@@ -53,6 +53,14 @@ for iter = 1:K
         
         plot([tree.V(iter).x; tree.V(ind).x],[tree.V(iter).y; tree.V(ind).y], 'g');
         break
+        if chkOBS(tree.V(iter).x,tree.V(iter).y,OBS)==1
+            return;
+        else
+            plot([tree.V(iter).x; tree.V(ind).x],[tree.V(iter).y; tree.V(ind).y], 'b');
+            plot(tree.V(iter).x, tree.V(iter).y, 'ko', 'MarkerSize',2, 'MarkerFaceColor','r')
+            pause(0);
+
+        end
     end
 %     if chkOBS(tree.V(iter).x,tree.V(iter).y,OBS)==1
 %         return;
