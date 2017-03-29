@@ -49,28 +49,15 @@ for iter = 1:K
     tree.V(iter).ind = iter; 
     tree.V(iter).indPrev = ind;
     
-    if sqrt( (xRand-xGoal)^2 + (yRand-yGoal)^2 ) <= epslo
+    if sqrt( (xRand-xGoal)^2 + (yRand-yGoal)^2 ) <= epslo && sqrt( (xRand-xGoal)^2 + (yRand-yGoal)^2 ) <= rGoal
         
         plot([tree.V(iter).x; tree.V(ind).x],[tree.V(iter).y; tree.V(ind).y], 'g');
         break
-        if chkOBS(tree.V(iter).x,tree.V(iter).y,OBS)==1
-            return;
-        else
-            plot([tree.V(iter).x; tree.V(ind).x],[tree.V(iter).y; tree.V(ind).y], 'b');
-            plot(tree.V(iter).x, tree.V(iter).y, 'ko', 'MarkerSize',2, 'MarkerFaceColor','r')
-            pause(0);
-
-        end
     end
-%     if chkOBS(tree.V(iter).x,tree.V(iter).y,OBS)==1
-%         return;
-%     else
-    plot([tree.V(iter).x; tree.V(ind).x],[tree.V(iter).y; tree.V(ind).y], 'b');
-    plot(tree.V(iter).x, tree.V(iter).y, 'ko', 'MarkerSize',2, 'MarkerFaceColor','r')
-    pause(0);
-%     end
+     plot([tree.V(iter).x; tree.V(ind).x],[tree.V(iter).y; tree.V(ind).y], 'b');
+     plot(tree.V(iter).x, tree.V(iter).y, 'ko', 'MarkerSize',2, 'MarkerFaceColor','r')
+           
 end
-
 if iter < K
     path.pos(1).x = xGoal; path.pos(1).y = yGoal;
     path.pos(2).x = tree.V(end).x; path.pos(2).y = tree.V(end).y;
