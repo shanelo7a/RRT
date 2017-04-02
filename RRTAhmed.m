@@ -46,7 +46,7 @@ while tree.V(end).dist == 0
     disp(tree.V(end).x);
     i=2;
     disp('i='); disp(i);
-    while epsChk(x,y,tree.V(i).xPrev,tree.V(i).yPrev,EPS) == 1
+    while epsChk(x,y,tree.V(i).xPrev,tree.V(i).yPrev,EPS) == 1 %it's stuck in this loop 
         disp('epsChk')
         disp(epsChk(x,y,tree.V(i).xPrev,tree.V(i).yPrev,EPS))
         while chkOBS(x,y,OBS) == 1
